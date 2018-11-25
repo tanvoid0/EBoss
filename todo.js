@@ -20,7 +20,7 @@ function saveData(){
   console.log("deadline: "+y);
   $.ajax({
     type: "GET",
-    url: "server.php?q=add",
+    url: "index.php?q=add",
     data: "text="+x+"&deadline="+y,
   }).done(function(msg){
     $('#msg').html("<br/><div class='alert alert-success' >Inserted successfully</div>");
@@ -35,7 +35,7 @@ function taskDone(str){
   var state = $('#todo-check-'+str).is(':checked');
   $.ajax({
       type:"GET",
-      url: "server.php?q=done",
+      url: "index.php?q=done",
       data: "id="+str+"&state="+state,
   }).done(function(msg){
       // $('#result').html("<br/><div class='alert alert-info'>"+msg+"</div>");
@@ -52,7 +52,7 @@ function updateData(str){
   // alert(str+" "+text+" "+deadline);
   $.ajax({
     type: "GET",
-    url: "server.php?q=edit",
+    url: "index.php?q=edit",
     data: "id="+id+"&text="+text+"&deadline="+deadline,
   }).done(function(msg){
     $('#result').html("<br/><div class='alert alert-info'>"+msg+"</div>");
@@ -65,7 +65,7 @@ function deleteData(str){
   console.log()
   $.ajax({
     type: "GET",
-    url: "server.php?q=del",
+    url: "index.php?q=del",
     data: "id="+id,
   }).done(function(msg){
     $('#msg').html("<br/><div class='alert alert-danger'>Deleted successfully!</div>");
@@ -78,7 +78,7 @@ function viewData(){
   // $('#sortable').html('Hello');
   $.ajax({
     type: "GET",
-    url: "server.php?q=view",
+    url: "index.php?q=view",
     success: function(data){
       // console.log(data);
       $('#sortable').html(data);
